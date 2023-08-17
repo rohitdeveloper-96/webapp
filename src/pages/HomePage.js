@@ -368,7 +368,7 @@ const HomePage = () => {
                         if (find === -1) {
                             console.log("new email")
                             setIsValidSkills(true)
-                            postUsersList(userName, userEmail, admin, active, moment(joindedDate).format('MM/DD/YYYY hh:mm aa'), end, skills)
+                            postUsersList(userName, userEmail, admin, active, moment(joindedDate).format('MM/DD/YYYY hh:mm a'), end, skills)
                             setMessage("The User Has been created Successfully")
                             setOpen(false);
                             reload()
@@ -400,7 +400,7 @@ const HomePage = () => {
     }
 
     const onUpdateHandler = () => {
-        let end = updateendDate === null ? "" : moment(updateendDate).format('MMMM Do YYYY, h:mm:ss aa')
+        let end = updateendDate === null ? "" : moment(updateendDate).format('MMMM Do YYYY, h:mm:ss a')
         let id = findUser.id;
         if (updateUserName.match(alphabets)) {
             setIsValidName(true)
