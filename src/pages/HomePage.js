@@ -29,7 +29,6 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import dayjs from 'dayjs';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import CloseIcon from '@mui/icons-material/Close';
 import { alphabets, emailregx, alphanum } from '../util/helpers';
@@ -355,9 +354,8 @@ const HomePage = () => {
     const reload = () => window.location.reload();
 
     const onClickHandler = () => {
-        let end = endDate === null ? "" : (moment(endDate).format('MM/DD/YYYY hh:mm a'))
+        let end = endDate === null ? "" : moment(endDate.$d).format('MM/DD/YYYY hh:mm a')
         const find = data.findIndex(item => item.email === userEmail)
-
         if (userName.match(alphabets)) {
             setIsValidName(true)
             if (userEmail.match(emailregx)) {
@@ -366,9 +364,8 @@ const HomePage = () => {
                     setIsValidDate(true)
                     if (skills.match(alphanum)) {
                         if (find === -1) {
-                            console.log("new email")
                             setIsValidSkills(true)
-                            postUsersList(userName, userEmail, admin, active, moment(joindedDate).format('MM/DD/YYYY hh:mm a'), end, skills)
+                            postUsersList(userName, userEmail, admin, active, moment(joindedDate.$d).format('MM/DD/YYYY hh:mm a'), end, skills)
                             setMessage("The User Has been created Successfully")
                             setOpen(false);
                             reload()
@@ -400,8 +397,11 @@ const HomePage = () => {
     }
 
     const onUpdateHandler = () => {
-        let end = updateendDate === null ? "" : moment(updateendDate).format('MMMM Do YYYY, h:mm:ss a')
+        let joinDate = updatejoindedDate === null ? "" : moment(updatejoindedDate.$d).format('MM/DD/YYYY hh:mm a')
+        let end =  updateendDate === null ? "" : moment(updateendDate.$d).format('MM/DD/YYYY hh:mm a')
         let id = findUser.id;
+        console.log(joinDate,"joined")
+        console.log(end,"end")
         if (updateUserName.match(alphabets)) {
             setIsValidName(true)
             if (updateuserEmail.match(emailregx)) {
@@ -411,7 +411,7 @@ const HomePage = () => {
                     if (updateskills.match(alphanum)) {
                         console.log("new email")
                         setIsValidSkills(true)
-                        updateUsersList(id, updateUserName, updateuserEmail, updateadmin, updateactive, moment(updatejoindedDate).format('MMMM Do YYYY, h:mm:ss a'), end, updateskills)
+                        updateUsersList(id, updateUserName, updateuserEmail, updateadmin, updateactive,joinDate,end, updateskills)
                         setMessage("The User Has been Updated Successfully")
                         setOpen(false);
                         reload()
@@ -456,11 +456,12 @@ const HomePage = () => {
 
     const onHandleEdit = (row) => {
         let findIndex = data.find(item => item.id === row.id)
+        console.log(findIndex.poolJoinedDate)
         setIndexOfFindUser(findIndex)
         updatesetUserName(findIndex.name)
         updatesetUserEmail(findIndex.email)
-        updatesetJoinedDate(moment(findIndex.poolJoinedDate).format("MM/DD/YYYY hh:mm a"))
-        updatesetEndDate(moment(findIndex.poolEndDate).format("MM/DD/YYYY hh:mm a"))
+        //updatesetJoinedDate(findIndex.poolJoinedDate)
+        //updatesetEndDate(findIndex.poolEndDate)
         updatesetAdminBool(findIndex.isAdmin)
         updatesetActive(findIndex.active)
         updatesetSkills(findIndex.primarySkills)
@@ -794,26 +795,23 @@ const HomePage = () => {
                             </FormControl>
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DateTimePicker
-                                    disableFuture
+
                                     sx={{
                                         width: 230,
                                         mt: 2,
 
                                     }}
-                                    id="joinedDate"
                                     label="Joined Date"
                                     value={updatejoindedDate}
                                     onChange={(value) => updatesetJoinedDate(value)}
                                 />
                                 <DateTimePicker
-                                    disablePast
                                     sx={{
                                         width: 230,
                                         mt: 2,
                                         ml: 5
                                     }}
-
-                                    id="endDate"
+                                    disablePast
                                     label="End Date"
                                     value={updateendDate}
                                     onChange={(value) => updatesetEndDate(value)}
