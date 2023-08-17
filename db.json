@@ -1,0 +1,144 @@
+{
+  "empList": [
+    {
+      "id": 1,
+      "name": "Muralidhar Reddy Gajjala",
+      "email": "gmuralidhar.reddy@happiestminds.com",
+      "isAdmin": "true"
+    },
+    {
+      "id": 2,
+      "name": "Rohit",
+      "email": "rohit@happiestminds.com",
+      "isAdmin": "true"
+    },
+    {
+      "id": 6,
+      "name": "Jibesh",
+      "email": "Jibesh@happiestminds.com",
+      "isAdmin": "false",
+      "poolJoinedDate": "Tue Jul 25 2023 19:08:22 ",
+      "poolEndDate": "",
+      "primarySkills": "React, Javascript, HTML, CSS, Node JS"
+    },
+    {
+      "id": 7,
+      "name": "Selva",
+      "email": "Selva@happiestminds.com",
+      "isAdmin": "false",
+      "poolJoinedDate": "Tue Jul 25 2023 19:08:22 ",
+      "poolEndDate": "",
+      "primarySkills": "React, Javascript, HTML, CSS, Node JS"
+    },
+    {
+      "name": "Test",
+      "email": "Test@test.com",
+      "isAdmin": false,
+      "active": false,
+      "poolJoinedDate": "August 16th 2023, 12:00:00 am",
+      "poolEndDate": "August 16th 2023, 12:00:00 am",
+      "primarySkills": "Node JS",
+      "id": 13
+    },
+    {
+      "name": "Test",
+      "email": "rohitraj.m@mookambikainfo.com",
+      "isAdmin": false,
+      "active": true,
+      "poolJoinedDate": "August 16th 2023, 12:00:00 am",
+      "poolEndDate": "August 16th 2023, 12:00:00 am",
+      "primarySkills": "React Js",
+      "id": 14
+    },
+    {
+      "name": "Rohit Raj Manoharan",
+      "email": "xyz@gmail.com",
+      "isAdmin": false,
+      "active": true,
+      "poolJoinedDate": "August 16th 2023, 12:00:00 am",
+      "poolEndDate": "August 16th 2023, 12:00:00 am",
+      "primarySkills": "React Js",
+      "id": 17
+    },
+    {
+      "name": "Rohit Raj",
+      "email": "queen@gmail.com",
+      "isAdmin": false,
+      "active": true,
+      "poolJoinedDate": "August 16th 2023, 12:00:00 am",
+      "poolEndDate": "August 16th 2023, 12:00:00 am",
+      "primarySkills": "React Js",
+      "id": 18
+    },
+    {
+      "name": "rohit",
+      "email": "rohitrajmano@gmail.com",
+      "isAdmin": false,
+      "active": true,
+      "poolJoinedDate": "August 16th 2023, 12:00:00 am",
+      "poolEndDate": "August 16th 2023, 12:00:00 am",
+      "primarySkills": "React Js",
+      "id": 20
+    },
+    {
+      "name": "Testttttt",
+      "email": "testtt@gmail.com",
+      "isAdmin": false,
+      "active": true,
+      "poolJoinedDate": "August 16th 2023, 12:00:00 am",
+      "poolEndDate": "",
+      "primarySkills": "React Js",
+      "id": 21
+    },
+    {
+      "name": "testonceagain",
+      "email": "testxyz@gmail.com",
+      "isAdmin": false,
+      "active": true,
+      "poolJoinedDate": "August 16th 2023, 12:00:00 am",
+      "poolEndDate": "",
+      "primarySkills": "React Js",
+      "id": 22
+    },
+    {
+      "name": "V",
+      "email": "V@mookambikainfo.com",
+      "isAdmin": false,
+      "active": true,
+      "poolJoinedDate": "August 16th 2023, 12:00:00 am",
+      "poolEndDate": "August 16th 2023, 12:00:00 am",
+      "primarySkills": "React Js",
+      "id": 23
+    },
+    {
+      "name": "AAdhi",
+      "email": "abc@gmail.com",
+      "isAdmin": false,
+      "active": true,
+      "poolJoinedDate": "08/16/2023 12:00 amam",
+      "poolEndDate": "08/16/2023 12:00 amam",
+      "primarySkills": "React Js",
+      "id": 24
+    }
+  ],
+  "empsDetails": [
+    {
+      "name": "Prabhakar",
+      "email": "chandrashekhara.n@happiestminds.com",
+      "empStatus": [
+        {
+          "id": 1,
+          "date": "Tue Jul 25 2023 19:08:22 ",
+          "skillLearning": "Next JS",
+          "status": "Status Description"
+        },
+        {
+          "id": 2,
+          "date": "Tue Jul 24 2023 19:08:22",
+          "skillLearning": "Next JS",
+          "status": "Status Description"
+        }
+      ]
+    }
+  ]
+}
