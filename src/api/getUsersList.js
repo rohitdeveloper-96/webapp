@@ -23,7 +23,7 @@ export  const getUser = (dispatch, id) => {
 
 //POST
 export const postUsersList = (userName, userEmail, admin, active, joinedDate, endDate, skill) => {
-console.log("from APi")
+
     fetch("http://localhost:8080/emplist", {
 
         // Adding method type

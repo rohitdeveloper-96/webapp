@@ -400,8 +400,6 @@ const HomePage = () => {
         let joinDate = updatejoindedDate === null ? "" : moment(updatejoindedDate.$d).format('MM/DD/YYYY hh:mm a')
         let end =  updateendDate === null ? "" : moment(updateendDate.$d).format('MM/DD/YYYY hh:mm a')
         let id = findUser.id;
-        console.log(joinDate,"joined")
-        console.log(end,"end")
         if (updateUserName.match(alphabets)) {
             setIsValidName(true)
             if (updateuserEmail.match(emailregx)) {
@@ -409,7 +407,6 @@ const HomePage = () => {
                 if (updatejoindedDate) {
                     setIsValidDate(true)
                     if (updateskills.match(alphanum)) {
-                        console.log("new email")
                         setIsValidSkills(true)
                         updateUsersList(id, updateUserName, updateuserEmail, updateadmin, updateactive,joinDate,end, updateskills)
                         setMessage("The User Has been Updated Successfully")
@@ -456,7 +453,6 @@ const HomePage = () => {
 
     const onHandleEdit = (row) => {
         let findIndex = data.find(item => item.id === row.id)
-        console.log(findIndex.poolJoinedDate)
         setIndexOfFindUser(findIndex)
         updatesetUserName(findIndex.name)
         updatesetUserEmail(findIndex.email)
