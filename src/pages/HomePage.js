@@ -29,6 +29,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import CloseIcon from '@mui/icons-material/Close';
 import { alphabets, emailregx, alphanum } from '../util/helpers';
@@ -354,7 +355,7 @@ const HomePage = () => {
     const reload = () => window.location.reload();
 
     const onClickHandler = () => {
-        let end = endDate === null ? "" : moment(endDate).format('MM/DD/YYYY hh:mm a')
+        let end = endDate === null ? "" : (moment(endDate).format('MM/DD/YYYY hh:mm a'))
         const find = data.findIndex(item => item.email === userEmail)
 
         if (userName.match(alphabets)) {
@@ -367,7 +368,7 @@ const HomePage = () => {
                         if (find === -1) {
                             console.log("new email")
                             setIsValidSkills(true)
-                            postUsersList(userName, userEmail, admin, active, moment(joindedDate).format('MM/DD/YYYY hh:mm a'), end, skills)
+                            postUsersList(userName, userEmail, admin, active, moment(joindedDate).format('MM/DD/YYYY hh:mm aa'), end, skills)
                             setMessage("The User Has been created Successfully")
                             setOpen(false);
                             reload()
@@ -399,7 +400,7 @@ const HomePage = () => {
     }
 
     const onUpdateHandler = () => {
-        let end = updateendDate === null ? "" : moment(updateendDate).format('MMMM Do YYYY, h:mm:ss a')
+        let end = updateendDate === null ? "" : moment(updateendDate).format('MMMM Do YYYY, h:mm:ss aa')
         let id = findUser.id;
         if (updateUserName.match(alphabets)) {
             setIsValidName(true)
@@ -553,7 +554,7 @@ const HomePage = () => {
 
                                         </TableRow>
                                     )
-                                }) : <Box style={{ width:200,margin:"0 auto" }}><Typography>No record Found!</Typography></Box>}
+                                }) : <Box style={{ width: 200, margin: "0 auto" }}><Typography>No record Found!</Typography></Box>}
                                 {emptyRows > 0 && (
                                     <TableRow
                                         style={{
@@ -793,7 +794,7 @@ const HomePage = () => {
                             </FormControl>
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DateTimePicker
-
+                                    disableFuture
                                     sx={{
                                         width: 230,
                                         mt: 2,
@@ -805,6 +806,7 @@ const HomePage = () => {
                                     onChange={(value) => updatesetJoinedDate(value)}
                                 />
                                 <DateTimePicker
+                                    disablePast
                                     sx={{
                                         width: 230,
                                         mt: 2,
